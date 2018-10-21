@@ -21,7 +21,11 @@ public class Race {
             for (Vehicle vehicle : Vehicles) {
                 Weather.setRaining();
                 if (vehicle instanceof Truck) {
-                    ((Truck) vehicle).breakdownRoll();
+                    if (((Truck) vehicle).getBreakdownTurnsLeft() > 0) {
+                        ((Truck) vehicle).setBreakdownTurnsLeft(((Truck) vehicle).getBreakdownTurnsLeft() - 1);
+                    } else {
+                        ((Truck) vehicle).breakdownRoll();
+                    }
                 }
                 if (isThereABrokenTruck()) {
                     vehicle.setSpeedMax(75);
@@ -33,6 +37,7 @@ public class Race {
                     vehicle.setSpeedMax(100 - rand.nextInt(51 - 5) + 5);
                 }
                 vehicle.moveForAnHour();
+                System.out.println(vehicle.getClass().getSimpleName() + String.valueOf(vehicle.getSpeedMax()));
             }
         }
     }
@@ -45,7 +50,6 @@ public class Race {
                                " travelled " +
                                vehicle.getDistanceTraveled() +
                                " km-s ");
-            System.out.println(vehicle.getClass().getSimpleName() + String.valueOf(vehicle.getSpeed()));
         }
     }
 
@@ -53,7 +57,6 @@ public class Race {
         for (Vehicle vehicle : Vehicles) {
             if (vehicle instanceof Truck) {
                 if (((Truck) vehicle).getBreakdownTurnsLeft() > 0) {
-                    ((Truck) vehicle).setBreakdownTurnsLeft(((Truck) vehicle).getBreakdownTurnsLeft() - 1);
                     return true;
                 }
             }

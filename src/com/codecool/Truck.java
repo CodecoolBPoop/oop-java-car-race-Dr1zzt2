@@ -18,6 +18,7 @@ class Truck extends Vehicle{
         if (rand.nextInt(100) + 1 <= 5) {
             setBreakdownTurnsLeft(2);
             setSpeedMax(0);
+            System.out.println("Breakdown!");
         }
     }
 

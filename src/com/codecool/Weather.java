@@ -7,6 +7,9 @@ class Weather {
     static void setRaining() {
         Random rand = new Random();
         isRaining = rand.nextInt(100) + 1 <= 30;
+        if (isRaining) {
+            System.out.println("Raining!");
+        }
     }
 
     static boolean isRaining() {

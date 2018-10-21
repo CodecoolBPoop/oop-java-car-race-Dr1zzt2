@@ -5,6 +5,10 @@ import java.util.Random;
 class Vehicle {
     private int speed = 0; // km/h
 
+    public int getSpeedMax() {
+        return speedMax;
+    }
+
     public void setSpeedMax(int speedMax) {
         this.speedMax = speedMax;
     }
