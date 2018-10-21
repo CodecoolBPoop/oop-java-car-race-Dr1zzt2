@@ -34,7 +34,10 @@ public class Race {
                 }
                 if (Weather.isRaining() && vehicle instanceof Motorcycle) {
                     Random rand = new Random();
-                    vehicle.setSpeedMax(100 - rand.nextInt(51 - 5) + 5);
+                    int newSpeedMax = 100 - rand.nextInt(51 - 5) + 5;
+                    if (newSpeedMax < vehicle.getSpeedMax()) {
+                        vehicle.setSpeedMax(newSpeedMax);
+                    }
                 }
                 vehicle.moveForAnHour();
                 System.out.println(vehicle.getClass().getSimpleName() + String.valueOf(vehicle.getSpeedMax()));
