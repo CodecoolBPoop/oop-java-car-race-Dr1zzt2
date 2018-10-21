@@ -18,8 +18,8 @@ public class Race {
 
     private static void simulateRace() {
         for (int i = 0; i < 50; i++) {
+            Weather.setRaining();
             for (Vehicle vehicle : Vehicles) {
-                Weather.setRaining();
                 if (vehicle instanceof Truck) {
                     if (((Truck) vehicle).getBreakdownTurnsLeft() > 0) {
                         ((Truck) vehicle).setBreakdownTurnsLeft(((Truck) vehicle).getBreakdownTurnsLeft() - 1);
