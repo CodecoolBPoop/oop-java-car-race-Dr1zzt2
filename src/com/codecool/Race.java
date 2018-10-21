@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
+    private static List<Vehicle> Vehicles = new ArrayList<>();
 
-    static void createVehicles(List Vehicles) {
+    private static void createVehicles() {
         for (int i = 0; i < 10; i++) {
             Vehicles.add(new Car());
             Vehicles.add(new Motorcycle());
@@ -14,23 +15,20 @@ public class Race {
 
     }
 
-    static void simulateRace() {
+    private static void simulateRace() {
         Weather.setRaining();
-        List<Vehicle> Vehicles = new ArrayList<>();
-        createVehicles(Vehicles);
         for (int i = 0; i < 50; i++) {
             for (Vehicle vehicle : Vehicles) {
                 vehicle.moveForAnHour();
             }
         }
-        printRaceResults(Vehicles);
     }
 
-    static void printRaceResults(List Vehicles) {
+    private static void printRaceResults() {
         for (Vehicle vehicle : Vehicles) {
             System.out.println(vehicle.getClass().getSimpleName() +
                                "named" +
-                               "" +
+                               vehicle.getName() +
                                "travelled" +
                                vehicle.getDistanceTraveled() +
                                "km-s");
@@ -38,10 +36,12 @@ public class Race {
     }
 
     boolean isThereABrokenTruck() {
-
+        return false;
     }
 
     public static void main(String[] args) {
+        createVehicles();
 	    simulateRace();
+        printRaceResults();
     }
 }
