@@ -27,11 +27,11 @@ public class Race {
     private static void printRaceResults() {
         for (Vehicle vehicle : Vehicles) {
             System.out.println(vehicle.getClass().getSimpleName() +
-                               "named" +
+                               " named " +
                                vehicle.getName() +
-                               "travelled" +
+                               " travelled " +
                                vehicle.getDistanceTraveled() +
-                               "km-s");
+                               " km-s ");
         }
     }
 

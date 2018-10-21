@@ -5,7 +5,7 @@ class Motorcycle extends Vehicle{
     Motorcycle() {
         setSpeed(100);
         nameNumber++;
-        setName("Motorcycle" + nameNumber);
+        setName("Motorcycle " + nameNumber);
 
     }
 }
