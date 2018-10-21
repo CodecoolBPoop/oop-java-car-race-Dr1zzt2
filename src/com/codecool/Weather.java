@@ -1,7 +1,7 @@
 package com.codecool;
 import java.util.Random;
 
-public class Weather {
+class Weather {
     private static boolean isRaining = false;
 
     static void setRaining() {
