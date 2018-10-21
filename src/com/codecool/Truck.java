@@ -17,12 +17,12 @@ class Truck extends Vehicle{
         Random rand = new Random();
         if (rand.nextInt(100) + 1 <= 5) {
             setBreakdownTurnsLeft(2);
-            setSpeed(0);
+            setSpeedMax(0);
         }
     }
 
     Truck() {
-        setSpeedMax(0);
+        setSpeed(100);
         Random rand = new Random();
         setName(String.valueOf(rand.nextInt(1001)));
 
