@@ -1,7 +1,15 @@
 package com.codecool;
 
+import java.util.Random;
+
 class Vehicle {
     private int speed = 0; // km/h
+
+    public void setSpeedMax(int speedMax) {
+        this.speedMax = speedMax;
+    }
+
+    private int speedMax = 999; // km/h
 
     private String name;
 
@@ -9,6 +17,10 @@ class Vehicle {
 
     String getName() {
         return name;
+    }
+
+    int getSpeed() {
+        return speed;
     }
 
     void setName(String newName) {
@@ -24,6 +36,10 @@ class Vehicle {
     }
 
     void moveForAnHour() {
-        distanceTraveled = distanceTraveled + speed;
+        if (speed > speedMax) {
+            distanceTraveled = distanceTraveled + speedMax;
+        } else {
+            distanceTraveled = distanceTraveled + speed;
+        }
     }
 }

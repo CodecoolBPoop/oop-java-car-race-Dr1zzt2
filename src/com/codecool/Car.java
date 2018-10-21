@@ -10,7 +10,7 @@ class Car extends Vehicle {
 
     Car() {
         Random rand = new Random();
-        setSpeed(rand.nextInt(110) + 80);
+        setSpeed(rand.nextInt(111 - 80) + 80);
         setName(carNames.get(rand.nextInt(8)) + " " + carNames.get(rand.nextInt(8)));
 
     }
