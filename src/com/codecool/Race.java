@@ -17,9 +17,9 @@ public class Race {
     }
 
     private static void simulateRace() {
-        Weather.setRaining();
         for (int i = 0; i < 50; i++) {
             for (Vehicle vehicle : Vehicles) {
+                Weather.setRaining();
                 if (vehicle instanceof Truck) {
                     ((Truck) vehicle).breakdownRoll();
                 }
@@ -30,7 +30,7 @@ public class Race {
                 }
                 if (Weather.isRaining() && vehicle instanceof Motorcycle) {
                     Random rand = new Random();
-                    vehicle.setSpeedMax(vehicle.getSpeed() - rand.nextInt(51 - 5) + 5);
+                    vehicle.setSpeedMax(100 - rand.nextInt(51 - 5) + 5);
                 }
                 vehicle.moveForAnHour();
             }
